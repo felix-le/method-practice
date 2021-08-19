@@ -30,7 +30,8 @@ export function RenderRoutes({ routes }) {
       {routes.map((route, i) => {
         return <RouteWithSubRoutes key={route.key} {...route} />;
       })}
-      <Route component={lazy(() => import("../Pages/Page404"))} />
+      <Route path="/404" component={lazy(() => import("../Pages/Page404"))} />
+      <Redirect to="/404" />
     </Switch>
   );
 }
