@@ -11,7 +11,15 @@ function RouteWithSubRoutes(route) {
     <Route
       path={route.path}
       exact={route.exact}
-      render={(props) => <route.component {...props} routes={route.routes} />}
+      render={(props) =>
+        route.layout ? (
+          <route.layout>
+            <route.component {...props} routes={route.routes} />
+          </route.layout>
+        ) : (
+          <route.component {...props} routes={route.routes} />
+        )
+      }
     />
   );
 }
@@ -108,9 +116,7 @@ const layoutRoutesConfig = [
 //   ) : null;
 
 function LayoutRoutesC() {
-  return (
-    <RenderRoutes routes={layoutRoutesConfig} />
-  )
+  return <RenderRoutes routes={layoutRoutesConfig} />;
 }
 
 export default LayoutRoutesC;
