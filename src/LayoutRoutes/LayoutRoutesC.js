@@ -1,10 +1,14 @@
 import { lazy, Fragment, Suspense } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
-import { PrivateLayout, PublicLayout } from './Layouts';
-
+// import { PrivateLayout, PublicLayout } from './Layouts';
+import PrivateLayout from './Layouts/PrivateLayout';
+import PublicLayout from './Layouts/PublicLayout';
 import LoadingPage from '../Pages/LoadingPage';
-
 import HomePage from '../Pages/HomePage';
+
+import LoginPage from '../Pages/LoginPage';
+import RegisterPage from '../Pages/RegisterPage';
+import Page404 from '../Pages/Page404';
 const layoutRoutesConfig = [
   {
     exact: true,
@@ -14,7 +18,7 @@ const layoutRoutesConfig = [
   {
     exact: true,
     path: '/404',
-    component: lazy(() => import('../Pages/Page404')),
+    component: Page404,
   },
   {
     path: '/pub',
@@ -28,15 +32,15 @@ const layoutRoutesConfig = [
       {
         exact: true,
         path: '/pub/login',
-        component: lazy(() => import('../Pages/LoginPage')),
+        component: LoginPage,
       },
       {
         exact: true,
         path: '/pub/register',
-        component: lazy(() => import('../Pages/RegisterPage')),
+        component: RegisterPage,
       },
       {
-        component: () => <Redirect to='/404' />,
+        // component: () => <Redirect to='/404' />,
       },
     ],
   },
@@ -60,7 +64,7 @@ const layoutRoutesConfig = [
         component: lazy(() => import('../Pages/AccountPage')),
       },
       {
-        component: () => <Redirect to='/404' />,
+        // component: () => <Redirect to='/404' />,
       },
     ],
   },
@@ -74,7 +78,7 @@ const layoutRoutesConfig = [
         component: HomePage,
       },
       {
-        component: () => <Redirect to='/404' />,
+        // component: () => <Redirect to='/404' />,
       },
     ],
   },
