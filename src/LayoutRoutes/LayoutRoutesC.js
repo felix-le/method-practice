@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import { PrivateLayout, PublicLayout } from './Layouts';
-
+// import { useHistory } from 'react-router-dom';
 import HomePage from '../Pages/HomePage';
 
 function RouteWithSubRoutes(route) {
@@ -26,7 +26,7 @@ export function RenderRoutes({ routes }) {
   return (
     <Switch>
       {routes.map((route, i) => {
-        return <RouteWithSubRoutes key={route.key} {...route} />;
+        return <RouteWithSubRoutes key={i} {...route} />;
       })}
       <Route component={() => <Redirect to='/404' />} />
     </Switch>
@@ -44,23 +44,23 @@ const layoutRoutesConfig = [
     component: lazy(() => import('../Pages/Page404')),
   },
   {
-    path: '/layoutroutes',
+    path: '/pub',
     layout: PublicLayout,
     component: RenderRoutes,
     routes: [
       {
         exact: true,
-        path: '/layoutroutes/public',
-        component: () => <Redirect to='/layoutroutes/public/login' />,
+        path: '/pub',
+        component: () => <Redirect to='/pub/login' />,
       },
       {
         exact: true,
-        path: '/layoutroutes/public/login',
+        path: '/pub/login',
         component: lazy(() => import('../Pages/LoginPage')),
       },
       {
         exact: true,
-        path: '/layoutroutes/public/register',
+        path: '/pub/register',
         component: lazy(() => import('../Pages/AccountPage')),
       },
     ],
@@ -102,6 +102,8 @@ const layoutRoutesConfig = [
 ];
 
 function LayoutRoutesC() {
+  // let history = useHistory();
+  // console.log('🚀 ~ LayoutRoutesC ~ history', history);
   return <RenderRoutes routes={layoutRoutesConfig} />;
 }
 
