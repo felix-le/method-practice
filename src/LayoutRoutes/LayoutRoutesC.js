@@ -17,23 +17,23 @@ const layoutRoutesConfig = [
     component: lazy(() => import('../Pages/Page404')),
   },
   {
-    path: '/layoutroutes',
+    path: '/pub',
     layout: PublicLayout,
     routes: [
       {
         exact: true,
-        path: '/layoutroutes/public',
-        component: () => <Redirect to='/layoutroutes/public/login' />,
+        path: '/pub',
+        component: () => <Redirect to='/pub/login' />,
       },
       {
         exact: true,
-        path: '/layoutroutes/public/login',
+        path: '/pub/login',
         component: lazy(() => import('../Pages/LoginPage')),
       },
       {
         exact: true,
-        path: '/layoutroutes/public/register',
-        component: lazy(() => import('../Pages/AccountPage')),
+        path: '/pub/register',
+        component: lazy(() => import('../Pages/RegisterPage')),
       },
       {
         component: () => <Redirect to='/404' />,
@@ -57,7 +57,7 @@ const layoutRoutesConfig = [
       {
         exact: true,
         path: '/app/account',
-        component: lazy(() => import('../Pages/Dashboard')),
+        component: lazy(() => import('../Pages/AccountPage')),
       },
       {
         component: () => <Redirect to='/404' />,
