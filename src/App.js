@@ -1,5 +1,5 @@
 // import LayoutRoutes from './LayoutRoutes';
-import { Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import LayoutRoutesC from './LayoutRoutes/LayoutRoutesC';
 const history = createBrowserHistory();
@@ -8,9 +8,9 @@ function App() {
     <div className='main'>
       <div className='max-w-md mx-auto my-0'>
         <h1>this is home screen</h1>
-        <Router history={history}>
+        <BrowserRouter>
           <LayoutRoutesC />
-        </Router>
+        </BrowserRouter>
       </div>
     </div>
   );
