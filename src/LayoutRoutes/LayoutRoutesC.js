@@ -2,9 +2,6 @@ import { lazy, Fragment, Suspense } from 'react';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import { PrivateLayout, PublicLayout } from './Layouts';
 
-import AccountPage from '../Pages/AccountPage';
-import Dashboard from '../Pages/Dashboard';
-import RegisterPage from '../Pages/RegisterPage';
 import LoadingPage from '../Pages/LoadingPage';
 
 const layoutRoutesConfig = [
@@ -31,29 +28,29 @@ const layoutRoutesConfig = [
       {
         exact: true,
         path: '/layoutroutes/public/register',
-        component: <RegisterPage />,
+        component: lazy(() => import('../Pages/AccountPage')),
       },
     ],
   },
   {
     exact: true,
-    path: '/layoutroutes/app',
+    path: '/app',
     layout: PrivateLayout,
     routes: [
       {
         exact: true,
-        path: '/layoutroutes/app',
-        component: () => <Redirect to='/layoutroutes/app/dashboard' />,
+        path: '/app',
+        component: () => <Redirect to='/app/dashboard' />,
       },
       {
         exact: true,
-        path: '/layoutroutes/app/dashboard',
-        component: () => <Dashboard />,
+        path: '/app/dashboard',
+        component: lazy(() => import('../Pages/Dashboard')),
       },
       {
         exact: true,
-        path: '/layoutroutes/app/account',
-        component: () => <AccountPage />,
+        path: '/app/account',
+        component: lazy(() => import('../Pages/Dashboard')),
       },
     ],
   },
