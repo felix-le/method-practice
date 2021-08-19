@@ -17,7 +17,6 @@ const layoutRoutesConfig = [
     component: lazy(() => import('../Pages/Page404')),
   },
   {
-    exact: true,
     path: '/layoutroutes',
     layout: PublicLayout,
     routes: [
@@ -36,10 +35,12 @@ const layoutRoutesConfig = [
         path: '/layoutroutes/public/register',
         component: lazy(() => import('../Pages/AccountPage')),
       },
+      {
+        component: () => <Redirect to='/404' />,
+      },
     ],
   },
   {
-    exact: true,
     path: '/app',
     layout: PrivateLayout,
     routes: [
@@ -58,6 +59,9 @@ const layoutRoutesConfig = [
         path: '/app/account',
         component: lazy(() => import('../Pages/Dashboard')),
       },
+      {
+        component: () => <Redirect to='/404' />,
+      },
     ],
   },
   {
@@ -70,7 +74,7 @@ const layoutRoutesConfig = [
         component: HomePage,
       },
       {
-        // component: () => <Redirect to='/404' />,
+        component: () => <Redirect to='/404' />,
       },
     ],
   },
