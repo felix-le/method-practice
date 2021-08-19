@@ -4,11 +4,17 @@ import { PrivateLayout, PublicLayout } from './Layouts';
 
 import LoadingPage from '../Pages/LoadingPage';
 
+import HomePage from '../Pages/HomePage';
 const layoutRoutesConfig = [
   {
     exact: true,
     path: '/',
-    component: lazy(() => import('../Pages/HomePage')),
+    component: () => <Redirect to='/home' />,
+  },
+  {
+    exact: true,
+    path: '/404',
+    component: lazy(() => import('../Pages/Page404')),
   },
   {
     exact: true,
@@ -51,6 +57,20 @@ const layoutRoutesConfig = [
         exact: true,
         path: '/app/account',
         component: lazy(() => import('../Pages/Dashboard')),
+      },
+    ],
+  },
+  {
+    path: '*',
+    layout: PublicLayout,
+    routes: [
+      {
+        exact: true,
+        path: '/home',
+        component: HomePage,
+      },
+      {
+        // component: () => <Redirect to='/404' />,
       },
     ],
   },
