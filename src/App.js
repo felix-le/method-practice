@@ -1,16 +1,14 @@
 // import LayoutRoutes from './LayoutRoutes';
 import { BrowserRouter } from 'react-router-dom';
 import LayoutRoutesC from './LayoutRoutes/LayoutRoutesC';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
-    <div className='main mt-3'>
-      <div className='max-w-screen-xl mx-auto my-2'>
-        <h1 className='text-gray-500'>this is home screen</h1>
-        <BrowserRouter>
-          <LayoutRoutesC />
-        </BrowserRouter>
-      </div>
+    <div className='max-w-full'>
+      <BrowserRouter>
+        <LayoutRoutesC />
+        <ToastContainer />
+      </BrowserRouter>
     </div>
   );
 }
