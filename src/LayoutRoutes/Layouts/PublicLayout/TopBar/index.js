@@ -6,10 +6,10 @@ import Modal from 'src/components/Modal';
 import { useState } from 'react';
 
 const TopBar = ({ onMobileNavOpen }) => {
-  const [openModal, setOpentModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleOpenModal = () => {
-    setOpentModal(!openModal);
+    setOpenModal(!openModal);
   };
 
   return (
@@ -27,11 +27,16 @@ const TopBar = ({ onMobileNavOpen }) => {
           </Link>
         </div>
       </div>
-      <div className='flex items-center'>
+      <div className='flex items-center space-x-2'>
         <Search />
-
-        <AlertOctagon onClick={handleOpenModal} />
-        <Modal show={openModal} handleShow={setOpentModal}>
+        <div
+          className='flex flex-col cursor-pointer justify-center items-center'
+          onClick={handleOpenModal}
+        >
+          <AlertOctagon />
+          <h2>Modal</h2>
+        </div>
+        <Modal show={openModal} handleShow={setOpenModal}>
           <h1>hello</h1>
         </Modal>
       </div>

@@ -4,7 +4,7 @@ import LayoutRoutesC from './LayoutRoutes/LayoutRoutesC';
 import { ToastContainer } from 'react-toastify';
 function App() {
   return (
-    <div className='max-w-full'>
+    <div className='max-w-full min-h-screen'>
       <BrowserRouter>
         <LayoutRoutesC />
         <ToastContainer />
