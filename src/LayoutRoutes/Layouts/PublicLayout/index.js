@@ -4,10 +4,6 @@ import TopBar from './TopBar';
 
 const PublicLayout = ({ children }) => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
-  console.log(
-    '🚀 ~ file: index.js ~ line 7 ~ PublicLayout ~ isMobileNavOpen',
-    isMobileNavOpen
-  );
 
   return (
     <>

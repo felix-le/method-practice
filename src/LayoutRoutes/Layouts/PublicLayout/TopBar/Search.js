@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // import { SEARCH_DATA } from '../../../../data/searchData';
-import { Search as SearchIcon, XCircle as XIcon } from 'react-feather';
+import { Search as SearchIcon } from 'react-feather';
 // import { toast } from 'react-toastify';
 import ToolTip from 'src/components/ToolTips';
 
@@ -9,21 +9,8 @@ import RightBar from 'src/components/RightBar';
 const Search = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [searchValue, setSearchValue] = useState('');
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
-
-  const handleSearch = (e) => {
-    setSearchValue(e.target.value);
-  };
-
   const handleOpen = () => {
     setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
   };
 
   return (
